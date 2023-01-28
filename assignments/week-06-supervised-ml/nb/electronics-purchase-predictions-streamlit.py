@@ -3,6 +3,10 @@ import plotly.express as px
 import plotly.figure_factory as ff
 import streamlit as st
 import streamlit.components.v1 as components
+import numpy as np
+import shap
+from sklearn.ensemble import GradientBoostingClassifier
+from streamlit_shap import st_shap
 
 # Display Wal-Mart Labs logo.
 st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Walmart_Labs_logo.svg/1024px-Walmart_Labs_logo.svg.png" )
@@ -10,8 +14,16 @@ st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Walmart_Labs
 st.markdown("<h1 style='text-align: center; color: black;'>Online Electronics Purchasing Behavior</h1>", unsafe_allow_html=True)
 
 # Import train dataset to DataFrame
-train_df = pd.read_csv("../dat/train.csv.gz", compression="gzip")
-model_results_df = pd.read_csv("../dat/model_results.csv")
+train_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/train.csv.gz", compression="gzip")
+test_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/test.csv.gz", compression="gzip")
+model_results_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/model_results.csv")
+X_test_reduced_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/X_test_reduced_df.csv")
+X_test_reduced=X_test_reduced_df.to_numpy()
+X_train_reduced_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/X_train_reduced_df.csv")
+X_train_reduced=X_train_reduced_df.to_numpy()
+y_train_df = pd.read_csv("/home/kingos82/Fourthbrain/MLE-11/assignments/week-06-supervised-ml/dat/y_train_df.csv")
+y_train=y_train_df.to_numpy()
+y_train=y_train[:,1]
 
 # Drop uniformative columns
 train_df.drop(columns=["year", "month", "Weekend"], inplace=True)
@@ -147,9 +159,30 @@ with tab3:
         # Use tab2 as a guide!  
         # Use columns to separate visualizations for models
         # Include a plot for local and global explanability!
-     
-    st.header(model1_select)
+    col1, col2 = st.columns(2)
+    with col1:
+
+        np.random.seed(123)
+        subset_size = 10000 #X_test_reduced.shape[0] # start with 100
+        idx = np.random.randint(X_test_reduced.shape[0], size=subset_size)
+        X_test_reduced_subset = X_test_reduced[idx, ]
+
+        gbt_model = GradientBoostingClassifier() # YOUR CODE HERE
+        gbt_model.fit(X_train_reduced, y_train)
+        explainer = shap.Explainer(gbt_model)
+        shap_values = explainer(X_test_reduced_subset)
+        st.header(model1_select)
+        st_shap(shap.plots.beeswarm(shap_values), height=300)
+        
     
-    st.header(model2_select)
+    with col2:
+        subset_size = X_test_reduced.shape[0] # start with 100
+        idx = np.random.randint(X_test_reduced.shape[0], size=subset_size)
+        X_test_reduced_subset = X_test_reduced[idx, ]
+        explainer = shap.Explainer(gbt_model)
+        shap_values = explainer(X_test_reduced_subset)
+        st.header(model2_select)
+        fig22=shap.plots.beeswarm(shap_values)
+        st.write(fig22)
 
     
