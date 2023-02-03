@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f887c00 (cleaning up local PR)
 <p align = "center" draggable=”false” ><img src="https://user-images.githubusercontent.com/37101144/161836199-fdb0219d-0361-4988-bf26-48b0fad160a3.png" 
      width="200px"
      height="auto"/>
@@ -472,6 +475,7 @@ Then click `Create Repository`.
 Now let's practice  what you have learned by playing the [Whodunit?](https://github.com/FourthBrain/whodunit) game!
 
 ### That's it for now!  And so it begins.... :)
+<<<<<<< HEAD
 =======
 <p align = "center" draggable=”false” ><img src="https://user-images.githubusercontent.com/37101144/161836199-fdb0219d-0361-4988-bf26-48b0fad160a3.png" 
      width="200px"
@@ -947,3 +951,5 @@ Now let's practice  what you have learned by playing the [Whodunit?](https://git
 
 ### That's it for now!  And so it begins.... :)
 >>>>>>> 6afbd5a (assignment1)
+=======
+>>>>>>> f887c00 (cleaning up local PR)

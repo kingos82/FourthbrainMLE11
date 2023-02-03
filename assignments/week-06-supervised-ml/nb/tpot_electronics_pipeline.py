@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import FastICA
@@ -26,6 +27,8 @@ set_param_recursive(exported_pipeline.steps, 'random_state', 42)
 exported_pipeline.fit(training_features, training_target)
 results = exported_pipeline.predict(testing_features)
 =======
+=======
+>>>>>>> f887c00 (cleaning up local PR)
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import FastICA
@@ -50,4 +53,7 @@ set_param_recursive(exported_pipeline.steps, 'random_state', 42)
 
 exported_pipeline.fit(training_features, training_target)
 results = exported_pipeline.predict(testing_features)
+<<<<<<< HEAD
+>>>>>>> f887c00 (cleaning up local PR)
+=======
 >>>>>>> f887c00 (cleaning up local PR)
