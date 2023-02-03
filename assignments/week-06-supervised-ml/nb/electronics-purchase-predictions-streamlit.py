@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
@@ -188,6 +189,8 @@ with tab3:
 
     
 =======
+=======
+>>>>>>> f887c00 (cleaning up local PR)
 import pandas as pd
 import plotly.express as px
 import plotly.figure_factory as ff
@@ -343,4 +346,7 @@ with tab3:
     st.header(model2_select)
 
     
+<<<<<<< HEAD
+>>>>>>> f887c00 (cleaning up local PR)
+=======
 >>>>>>> f887c00 (cleaning up local PR)
