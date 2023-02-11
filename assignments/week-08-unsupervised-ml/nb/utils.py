@@ -81,7 +81,7 @@ def visualize_silhouette(max_clusters:int, X:np.ndarray, random_state:int=10) ->
         # 2nd Plot showing the actual clusters formed
         colors = cm.nipy_spectral(cluster_labels.astype(float) / n_clusters)
         ax2.scatter(
-            X[:, 0], X[:, 1], marker=".", s=30, lw=1, alpha=0.7, c=colors, edgecolor="k"
+            X[:, 0], X[:, 1], marker=".", s=30, lw=0, alpha=0.7, c=colors, edgecolor="k"
         )
 
         # Labeling the clusters
