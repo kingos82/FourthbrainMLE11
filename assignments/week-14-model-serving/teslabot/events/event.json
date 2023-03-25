@@ -1,13 +1,3 @@
-{
-    "body": "{\"comments\": [\"hello world\"]}",
-    "resource": "/sentiment",
-    "path": "/sentiment",
-    "httpMethod": "POST",
- 
-    "requestContext": {
-      "path": "/sentiment",
-      "resourcePath": "sentiment",
-      "httpMethod": "POST"
-    }
-  }
-  
+version https://git-lfs.github.com/spec/v1
+oid sha256:d38e10f3783086fc7fcad4cc201730c69e6d75a734b4601a2157a84d1c773cb7
+size 261
