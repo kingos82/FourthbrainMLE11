@@ -1,0 +1,3 @@
+[submodule "assignments/week-15-model-monitoring/ml-monitoring-grafana"]
+	path = assignments/week-15-model-monitoring/ml-monitoring-grafana
+	url = https://github.com/FourthBrain/ml-monitoring-grafana
